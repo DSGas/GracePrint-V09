@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs') %>
+<div class='container'>
+<h1>Edit comment</h1>
+<form action='/print/<%= print_id %>/comments/<%= comment._id %>?_method=PUT' method='POST'>
+    <div class="mb-3">
+        <label class="form-label">Comment</label>
+        <input type="text" class="form-control" name='comment[text]' placeholder="<%= comment.text %> ">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href='/print/<%= print_id %>'>Go back</a>
+</form>
+</div>
+<%- include('../partials/footer.ejs') %>

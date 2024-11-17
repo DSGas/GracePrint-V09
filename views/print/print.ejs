@@ -1,0 +1,41 @@
+<%- include('../partials/header.ejs') %>
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Welcome To GracePrints</h1>
+      <p class="lead text-muted">View prints collections from collectors around the world!</p>
+      <p>
+        <a href="/print/new" class="btn btn-primary my-2">Add new collection</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+     <% prints.forEach(function(prints){ %>
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="<%= prints.image %>" class="indeximage" height="300px">
+
+          <div class="card-body">
+            <p class="card-text">Title: <%= prints.name %></p>
+            <p class="card-text">Artist: <%= prints.artist %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a class="btn btn-sm btn-outline-secondary" href='/print/<%= prints._id %>'>View</a>
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+              </div>
+              <!-- <small class="text-muted">9 mins</small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

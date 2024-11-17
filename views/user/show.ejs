@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs') %>
+<h1>User profile</h1>
+<p><%= user.firstName + ' ' + user.lastName %></p>
+<img src='<%= user.profileImage %>' width = '300px'>
+<p>
+    <a href='mailto: <%= user.email %>'><%= user.email %></a>
+</p>
+<h3>Your prints</h3>
+<ul>
+    <% prints.forEach(function(print){ %>
+        <li><a href='/print/<%= print.id %>'><%= print.name %></a></li>
+    <% }); %>
+</ul>
+<%- include('../partials/footer.ejs') %>

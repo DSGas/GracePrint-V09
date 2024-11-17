@@ -1,0 +1,24 @@
+<%- include('../partials/header.ejs') %>
+<div class='container'>
+<form action='/print' method='POST' enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" name='print[name]' placeholder="Print name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Artist</label>
+        <input type="text" class="form-control" name='print[artist]' placeholder="Artist name">
+    </div>
+    <!-- <div class="mb-3">
+        <label class="form-label">Image URL</label>
+        <input type="text" class="form-control" name='url' placeholder="URL of print image">
+    </div> -->
+    <div class="mb-3">
+        <label class="form-label">Image</label>
+        <input type="file" class="form-control" name='image' accept='image/*'>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href='/print'>Go back</a>
+</form>
+</div>
+<%- include('../partials/footer.ejs') %>

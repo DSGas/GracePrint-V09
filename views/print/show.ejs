@@ -1,0 +1,28 @@
+<%- include('../partials/header.ejs') %>
+<h1><%= print.name %></h1>
+<img src="<%= print.image %>">
+<p>Artist: <%= print.artist %></p>
+<p>Submitted by <%= print.author.username %></p>
+<% if(currentUser && print.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+    <a class="btn btn-sm btn-outline-secondary" href='/print/<%= print._id %>/edit'>Edit</a>
+    <form id='delete-form' action = '/print/<%= print._id %>?_method=DELETE' method = 'POST'>
+        <button type='submit' class='btn btn-sm btn-outline-secondary'>Delete</button>
+    </form>
+<% } %>
+<p>Comments:</p>
+<% print.comments.forEach(function(comment){ %>
+    <p>
+        <strong><%= comment.author.username %></strong> - <%= comment.text %>
+    </p>    
+        <% if(currentUser && comment.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+            <a href='/print/<%= print._id %>/comments/<%= comment._id %>/edit' class="btn btn-sm btn-outline-secondary">Edit</a>
+            <form id='delete-form' action = '/print/<%= print._id %>/comments/<%= comment._id %>?_method=DELETE' method = 'POST'>
+                <button type='submit' class='btn btn-sm btn-outline-secondary'>Delete</button>
+            </form>
+        <% } %>
+<% }); %>
+<p>
+    <a class="btn btn-sm btn-outline-secondary" href='/print/<%= print._id %>/comments/new'>Add new comment</a>
+</p>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+<div class='container'>
+<h1>Register</h1>
+<form action='/register' method='POST' enctype='multipart/form-data'>
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" name='username' placeholder="Username">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name='password' placeholder="Password">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">First name</label>
+        <input type="text" class="form-control" name='firstName' placeholder="First name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Last name</label>
+        <input type="text" class="form-control" name='lastName' placeholder="Last name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input type="email" class="form-control" name='email' placeholder="E-mail">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Profile Image</label>
+        <input type="file" class="form-control" name='profileImage' accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <a href='/'>Go back</a>
+</form>
+</div>
+<%- include('partials/footer.ejs') %>
